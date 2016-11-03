@@ -54,7 +54,7 @@
             this.LblLuckyNumber.Name = "LblLuckyNumber";
             this.LblLuckyNumber.Size = new System.Drawing.Size(388, 156);
             this.LblLuckyNumber.TabIndex = 1;
-            this.LblLuckyNumber.Text = "LUCKEY";
+            this.LblLuckyNumber.Text = "LUCKY";
             this.LblLuckyNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
