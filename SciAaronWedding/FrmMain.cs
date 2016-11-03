@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SciAaronWedding
@@ -36,14 +36,7 @@ namespace SciAaronWedding
             ShowLuckyListForm();
         }
 
-        private async void BtnLuckyDraw_Click(object sender, EventArgs e)
-        {
-            BtnLuckyDraw.Enabled = false;
-            await GetRandomNumber();
-            BtnLuckyDraw.Enabled = true;
-        }
-
-        private async Task GetRandomNumber()
+        private  void BtnLuckyDraw_Click(object sender, EventArgs e)
         {
             if (luckyNumberList.Count == MaxLuckyNumberInList)
             {
@@ -52,6 +45,19 @@ namespace SciAaronWedding
                 return;
             }
 
+            BtnLuckyDraw.Enabled = false;
+            var thread = new Thread(RandomNumber);
+            thread.Start();
+            //await GetRandomNumber();
+            thread.Join();
+            BtnLuckyDraw.Enabled = true;
+
+           
+
+        }
+
+        private void  RandomNumber()
+        {
             var luckyNumber = 0;
             do
             {
@@ -59,12 +65,37 @@ namespace SciAaronWedding
                 {
                     luckyNumber = Random.Next(1, 301);
                     LblLuckyNumber.Text = luckyNumber.ToString();
-                    await Task.Delay(DelayInSecond);
+                    Thread.Sleep(DelayInSecond);
                 }
 
             } while (luckyNumberList.Contains(luckyNumber));
             
             luckyNumberList.Add(luckyNumber);
         }
+
+        //private async Task GetRandomNumberAsync()
+        //{
+        //    if (luckyNumberList.Count == MaxLuckyNumberInList)
+        //    {
+        //        MessageBox.Show($"รายชื่อผู้โชคดีครบ {MaxLuckyNumberInList} คน แล้วครับ");
+        //        ShowLuckyListForm();
+        //        return;
+        //    }
+
+        //    var luckyNumber = 0;
+        //    do
+        //    {
+        //        for (var time = 0; time < MaxDraw; time++)
+        //        {
+        //            luckyNumber = Random.Next(1, 301);
+        //            LblLuckyNumber.Text = luckyNumber.ToString();
+        //            await Task.Delay(DelayInSecond);
+        //        }
+
+        //    } while (luckyNumberList.Contains(luckyNumber));
+            
+        //    luckyNumberList.Add(luckyNumber);
+        //}
+
     }
 }

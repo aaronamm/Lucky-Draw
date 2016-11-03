@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SciAaronWedding
@@ -16,7 +14,17 @@ namespace SciAaronWedding
         public FrmLuckyNumberList(IList<int> luckyNumberList)
         {
             InitializeComponent();
-            LblLuckyList.Text = string.Join("\n", luckyNumberList.ToArray());
+            LblLuckyList.Text = FormatList(luckyNumberList);
+        }
+
+        private static string FormatList(IList<int> luckNumberList)
+        {
+            StringBuilder stringBuilder =new StringBuilder();
+            foreach (var number in luckNumberList)
+            {
+                stringBuilder.AppendFormat("{0}\n", number);
+            }
+            return stringBuilder.ToString();
         }
 
 

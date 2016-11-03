@@ -34,9 +34,9 @@
             // LblLuckyList
             // 
             this.LblLuckyList.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLuckyList.Location = new System.Drawing.Point(97, 35);
+            this.LblLuckyList.Location = new System.Drawing.Point(97, 19);
             this.LblLuckyList.Name = "LblLuckyList";
-            this.LblLuckyList.Size = new System.Drawing.Size(181, 353);
+            this.LblLuckyList.Size = new System.Drawing.Size(181, 563);
             this.LblLuckyList.TabIndex = 0;
             this.LblLuckyList.Text = "Lucky Number";
             this.LblLuckyList.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 421);
+            this.ClientSize = new System.Drawing.Size(377, 591);
             this.Controls.Add(this.LblLuckyList);
             this.Name = "FrmLuckyNumberList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
